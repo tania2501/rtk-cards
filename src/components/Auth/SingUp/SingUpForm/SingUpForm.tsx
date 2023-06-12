@@ -1,31 +1,38 @@
-import { Button, Checkbox, FormControlLabel, FormGroup, FormLabel, Grid, TextField } from "@mui/material";
+import { Button, FormGroup, Grid, TextField } from "@mui/material";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import s from './ReduxForm.module.css';
+import s from './SingUpForm.module.css';
+import { useAppDispatch } from "app/hooks";
+import { authThunks } from "../auth.slice";
+import { NavLink } from "react-router-dom";
+
 
 type LoginFormType = {
   email: string;
   password: string;
-  rememberMe: boolean;
+  confirmPassword: string
 };
-export const ReduxForm = () => {
+
+export const SingUpForm = () => {
+  const dispatch = useAppDispatch()
   const {
     register,
     handleSubmit,
-    reset,
+    watch,
     formState: { errors, isValid },
   } = useForm<LoginFormType>({
     mode: "onChange",
     defaultValues: { email: "" },
   });
   const submitHandler: SubmitHandler<LoginFormType> = (data) => {
+    dispatch(authThunks.register({email: data.email, password: data.confirmPassword}))
     console.log(data);
   };
   return (
     <div>
       <Grid container justifyContent={"center"}>
         <Grid item xs={4} md={10}>
-          <div className={s.title}>Sing in</div>
+          <div className={s.title}>Sing up</div>
           <form onSubmit={handleSubmit(submitHandler)} className={s.form}>
             <FormGroup>
               <div>
@@ -69,6 +76,7 @@ export const ReduxForm = () => {
                   variant="standard"
                   color="secondary"
                   type="password"
+                  autoComplete="on"
                   {...register("password", {
                     required: "Field is required",
                     minLength: {
@@ -83,21 +91,24 @@ export const ReduxForm = () => {
                     pattern: { value: /^\S*$/, message: "No spaces allowed" },
                   })}
                 />
-              </div>
-              <div className={s.remember}>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      {...register("rememberMe")}
-                      color="secondary"
-                      size="small"
-                    />
-                  }
-                  label="Remember me"
+                {errors ? <p className={s.error}>{errors.confirmPassword?.message}</p> : ''}
+                <TextField
+                  label="Confirm password"
+                  fullWidth
+                  variant="standard"
+                  color="secondary"
+                  type="password"
+                  autoComplete="on"
+                  {...register("confirmPassword", {
+                    required: "Field is required",
+                    validate: (val: string) => {
+                      if (watch('password') !== val) {
+                        return "Your passwords do no match";
+                      }
+                    },
+                  })}
                 />
               </div>
-              <div className={s.forgot}>Forgot password?</div>
-              
                 <Button
                   variant="contained"
                   size="small"
@@ -106,13 +117,13 @@ export const ReduxForm = () => {
                   // disabled={!isValid}
                   className={s.buttons}
                 >
-                  Sing in
+                  Sing up
                 </Button>
            
             </FormGroup>
           </form>
-          <div className={s.singup}>Don`t have an account?</div>
-          <Button variant="text">Sing up</Button>
+          <div className={s.singin}>Already have an account?</div>
+          <Button variant="text"><NavLink to={'/login'}>Sing in</NavLink></Button>
         </Grid>
       </Grid>
     </div>

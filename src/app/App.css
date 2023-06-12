@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+  height: 100vh;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.loader {
+  position: fixed;
+  width: 100%;
+  left: 50%;
+  top: 30%
+}
+.paper {
+  width: 413px;
+  margin: 30px auto;
+  padding: 35px;
+}

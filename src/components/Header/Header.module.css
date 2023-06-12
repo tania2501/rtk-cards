@@ -10,5 +10,10 @@
 }
 .container button a {
   text-decoration: none;
+}
+.name  {
+  color: black;
+}
+.link  {
   color: #fff;
 }

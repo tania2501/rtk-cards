@@ -1,9 +1,15 @@
+import { appReducer } from './app.slice';
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
+import { loginReducer } from '../components/Auth/Login/login.slice';
+import { authReducer } from '../components/Auth/SingUp/auth.slice';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    auth: authReducer,
+    app: appReducer,
+    login: loginReducer
   },
 });
 
