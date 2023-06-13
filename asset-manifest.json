@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/rtk-cards/static/css/main.1d76eded.css",
+    "main.js": "/rtk-cards/static/js/main.84b638f4.js",
+    "static/js/787.5089830e.chunk.js": "/rtk-cards/static/js/787.5089830e.chunk.js",
+    "static/media/IMG_20230424_174148.jpg": "/rtk-cards/static/media/IMG_20230424_174148.015ef4dd6e01efe72526.jpg",
+    "index.html": "/rtk-cards/index.html",
+    "main.1d76eded.css.map": "/rtk-cards/static/css/main.1d76eded.css.map",
+    "main.84b638f4.js.map": "/rtk-cards/static/js/main.84b638f4.js.map",
+    "787.5089830e.chunk.js.map": "/rtk-cards/static/js/787.5089830e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1d76eded.css",
+    "static/js/main.84b638f4.js"
+  ]
+}
