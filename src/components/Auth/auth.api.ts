@@ -1,4 +1,4 @@
-import { instance } from 'common/api/common.api';
+import  instance  from 'common/api/common.api';
 
 export const authAPI = {
   login(arg: AuthType & { rememberMe: boolean }) {
@@ -12,7 +12,22 @@ export const authAPI = {
   },
   logOut() {
     return instance.delete('auth/me')
+  },
+  forgot(arg: ForgotPasswordType) {
+    return instance.post('auth/forgot', arg)
+  },
+  setPassword(arg: SetPasswordType) {
+    return instance.post('auth/set-new-password', arg)
   }
+}
+export type SetPasswordType = {
+  password: string
+  resetPasswordToken: string | undefined
+}
+export type ForgotPasswordType = {
+  email: string,
+  from: string,
+  message: string
 }
 export type AuthType = {
   email: string,

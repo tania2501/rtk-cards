@@ -8,11 +8,15 @@ import { Login } from "../components/Auth/Login/Login";
 import { Profile } from "../components/Profile/Profile";
 import { appThunks } from "./app.slice";
 import { CircularProgress, Paper } from "@mui/material";
+import { ForgotPassword } from "../components/Auth/Set_password/ForgotPassword";
+import { CheckMail } from "../components/Auth/Set_password/CheckMail/CheckMail";
+import { CreatePassword } from "../components/Auth/Set_password/CreateNewPassword/CreateNewPassword";
 
 function App() {
   const auth = useAppSelector((state) => state.app.auth);
   const initialized = useAppSelector((state) => state.app.initialized);
   const dispatch = useAppDispatch();
+  
   useEffect(() => {
     dispatch(appThunks.authorization());
   }, [dispatch]);
@@ -32,14 +36,17 @@ function App() {
           <div className="app-wrapper-content">
             <Paper elevation={3} className='paper'>
               <Routes>
-                <Route path="" element={<Profile />} />
+                <Route path="/" element={<Profile />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Singup />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/forgotPassword" element={<ForgotPassword />} />
+                <Route path="/checking" element={<CheckMail/>} />
+                <Route path="/set-new-password/:token" element={<CreatePassword />} />
                 {/* 
-              <Route path="/checking" element={<CheckMail/>} />
-              <Route path="/setPassword" element={<SetPassword />} />
-              <Route path="/forgotPassword" element={<ForgotPassword />} />
+              
+             
+              
               
               <Route path="/cards" element={<Cards />} />
               <Route path="/learn" element={<Learn />} /> */}

@@ -1,8 +1,9 @@
 import { authAPI } from './../components/Auth/auth.api';
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import React from "react";
 import { createAppAsyncThunk } from '../common/utils/create-app-async-thunk';
-import { setProfile } from '../components/Auth/Login/login.slice';
+import { setProfile } from '../components/Auth/SingUp/auth.slice';
+
 
 const slice = createSlice({
   name: 'app',
@@ -29,7 +30,6 @@ const authorization = createAppAsyncThunk("app/me", async (arg, thunkApi) => {
   const res = await authAPI.authMe();
   if(res.status === 200) {
     thunkApi.dispatch(singIn({auth: true}))
-    thunkApi.dispatch(setProfile({email: res.data.email, name: res.data.name}))
   }
 });
 

@@ -18,3 +18,6 @@
   margin: 30px auto;
   padding: 35px;
 }
+.app-wrapper-content button {
+  border-radius: 25px;
+}

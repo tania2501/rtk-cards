@@ -3,13 +3,13 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { Navigate } from "react-router-dom";
 import ava from "../../assets/IMG_20230424_174148.jpg";
 import s from "./Profile.module.css";
-import { loginThunks } from "../Auth/Login/login.slice";
+import { authThunks } from "../Auth/SingUp/auth.slice";
 
 export const Profile = () => {
   const dispatch = useAppDispatch();
   const auth = useAppSelector((state) => state.app.auth);
-  const name = useAppSelector((state) => state.login.profile.name);
-  const email = useAppSelector((state) => state.login.profile.email)
+  const name = useAppSelector((state) => state.auth.profile.name);
+  const email = useAppSelector((state) => state.auth.profile.email)
   if (!auth) {
     return <Navigate to="/login" />;
   }
@@ -21,7 +21,7 @@ export const Profile = () => {
       </div>
       <p>{name}</p>
       <p>{email}</p>
-      <button onClick={()=>dispatch(loginThunks.logOut())}>Log Out</button>
+      <button onClick={()=>dispatch(authThunks.logOut())}>Log Out</button>
     </div>
   );
 };

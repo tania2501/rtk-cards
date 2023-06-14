@@ -3,9 +3,9 @@ import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import s from './LoginForm.module.css';
 import { useAppDispatch } from "app/hooks";
-
 import { NavLink } from "react-router-dom";
-import { loginThunks } from "../login.slice";
+import { authThunks } from "../../SingUp/auth.slice";
+
 
 type LoginFormType = {
   email: string;
@@ -26,7 +26,7 @@ export const LoginForm = () => {
     defaultValues: { email: "" },
   });
   const submitHandler: SubmitHandler<LoginFormType> = (data) => {
-    dispatch(loginThunks.login(data))
+    dispatch(authThunks.login(data))
     console.log(data);
   };
   return (
@@ -105,7 +105,7 @@ export const LoginForm = () => {
                   label="Remember me"
                 />
               </div>
-              <div className={s.forgot}>Forgot password?</div>
+              <div className={s.forgot}><NavLink to='/forgotPassword'> Forgot password? </NavLink></div>
               
                 <Button
                   variant="contained"
