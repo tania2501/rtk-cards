@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/rtk-cards/static/css/main.1d76eded.css",
-    "main.js": "/rtk-cards/static/js/main.4e6a27ac.js",
+    "main.css": "/rtk-cards/static/css/main.407695aa.css",
+    "main.js": "/rtk-cards/static/js/main.d640ce6f.js",
     "static/js/787.5089830e.chunk.js": "/rtk-cards/static/js/787.5089830e.chunk.js",
     "static/media/IMG_20230424_174148.jpg": "/rtk-cards/static/media/IMG_20230424_174148.015ef4dd6e01efe72526.jpg",
+    "static/media/mail.png": "/rtk-cards/static/media/mail.51bca29424405792e576.png",
     "index.html": "/rtk-cards/index.html",
-    "main.1d76eded.css.map": "/rtk-cards/static/css/main.1d76eded.css.map",
-    "main.4e6a27ac.js.map": "/rtk-cards/static/js/main.4e6a27ac.js.map",
+    "main.407695aa.css.map": "/rtk-cards/static/css/main.407695aa.css.map",
+    "main.d640ce6f.js.map": "/rtk-cards/static/js/main.d640ce6f.js.map",
     "787.5089830e.chunk.js.map": "/rtk-cards/static/js/787.5089830e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1d76eded.css",
-    "static/js/main.4e6a27ac.js"
+    "static/css/main.407695aa.css",
+    "static/js/main.d640ce6f.js"
   ]
 }
