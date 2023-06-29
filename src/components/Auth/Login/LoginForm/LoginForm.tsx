@@ -105,7 +105,7 @@ export const LoginForm = () => {
                   label="Remember me"
                 />
               </div>
-              <div className={s.forgot}><NavLink to='/forgotPassword'> Forgot password? </NavLink></div>
+              <div className={s.forgot}><NavLink to='/rtk-cards/forgotPassword'> Forgot password? </NavLink></div>
               
                 <Button
                   variant="contained"
@@ -121,7 +121,7 @@ export const LoginForm = () => {
             </FormGroup>
           </form>
           <div className={s.singup}>Don`t have an account?</div>
-          <Button variant="text"><NavLink to={'/register'}> Sing up</NavLink></Button>
+          <Button variant="text"><NavLink to={'/rtk-cards/register'}> Sing up</NavLink></Button>
         </Grid>
       </Grid>
     </div>

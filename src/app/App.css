@@ -21,3 +21,6 @@
 .app-wrapper-content button {
   border-radius: 25px;
 }
+.App button {
+  cursor: pointer;
+}

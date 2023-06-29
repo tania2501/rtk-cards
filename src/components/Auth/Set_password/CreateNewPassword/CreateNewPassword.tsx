@@ -12,7 +12,7 @@ import { VisibilityOff, Visibility } from "@mui/icons-material";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch } from "app/hooks";
 import { authThunks } from "../../SingUp/auth.slice";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const CreatePassword = () => {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -33,14 +33,19 @@ export const CreatePassword = () => {
     mode: "onChange",
   });
   const { token } = useParams<{ token: string }>();
-
+  const navigate = useNavigate();
   const submitHandler: SubmitHandler<{ password: string }> = (data) => {
     dispatch(
       authThunks.setPassword({
         password: data.password,
-        resetPasswordToken: token,
+        resetPasswordToken: {token}.token,
       })
-    );
+    ).then(res => {
+      if(res.meta.requestStatus === 'fulfilled') {
+        return navigate('/rtk-cards/login')
+      }
+    })
+    console.log({token})
   };
   return (
     <div className={s.main}>

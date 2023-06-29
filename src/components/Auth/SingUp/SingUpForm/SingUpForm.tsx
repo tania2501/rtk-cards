@@ -123,7 +123,7 @@ export const SingUpForm = () => {
             </FormGroup>
           </form>
           <div className={s.singin}>Already have an account?</div>
-          <Button variant="text"><NavLink to={'/login'}>Sing in</NavLink></Button>
+          <Button variant="text"><NavLink to={'/rtk-cards/login'}>Sing in</NavLink></Button>
         </Grid>
       </Grid>
     </div>

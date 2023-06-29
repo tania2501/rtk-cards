@@ -18,6 +18,9 @@ export const authAPI = {
   },
   setPassword(arg: SetPasswordType) {
     return instance.post('auth/set-new-password', arg)
+  },
+  changeName(data: UserDataType) {
+    return instance.put('auth/me', data)
   }
 }
 export type SetPasswordType = {
@@ -51,4 +54,8 @@ export type ProfileType = {
   email: string;
   name: string;
   avatar?: string;
+}
+export type UserDataType = {
+  name?: string
+  avatar?: string
 }

@@ -13,6 +13,7 @@
 }
 .name  {
   color: black;
+  border-bottom: 2px dotted black;
 }
 .link  {
   color: #fff;

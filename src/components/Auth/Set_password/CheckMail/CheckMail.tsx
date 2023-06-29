@@ -12,7 +12,7 @@ export const CheckMail = () => {
       <h3>Check Email</h3>
       <div><img src={mail} alt="#"/></div>
       <p className={s.text}>We’ve sent an Email with instructions to {email}</p>
-      <Button variant="contained" color="secondary" fullWidth className={s.button}><NavLink to={'/login'}>Back to login</NavLink></Button>
+      <Button variant="contained" color="secondary" fullWidth className={s.button}><NavLink to={'/rtk-cards/login'}>Back to login</NavLink></Button>
     </div>
   )
 }

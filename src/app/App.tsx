@@ -29,27 +29,22 @@ function App() {
   }
   return (
     <BrowserRouter>
-      {auth ? <Navigate to="/profile" /> : null}
+      {auth ? <Navigate to="/rtk-cards/profile" /> : null}
       <div className="App">
         <Header />
         <div className="container">
           <div className="app-wrapper-content">
             <Paper elevation={3} className='paper'>
               <Routes>
-                <Route path="/" element={<Profile />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Singup />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/forgotPassword" element={<ForgotPassword />} />
-                <Route path="/checking" element={<CheckMail/>} />
-                <Route path="/set-new-password/:token" element={<CreatePassword />} />
-                {/* 
-              
-             
-              
-              
-              <Route path="/cards" element={<Cards />} />
-              <Route path="/learn" element={<Learn />} /> */}
+                <Route path="/rtk-cards" element={<Profile />} />
+                <Route path="/rtk-cards/login" element={<Login />} />
+                <Route path="/rtk-cards/register" element={<Singup />} />
+                <Route path="/rtk-cards/profile" element={<Profile />} />
+                <Route path="/rtk-cards/forgotPassword" element={<ForgotPassword />} />
+                <Route path="/rtk-cards/checking" element={<CheckMail/>} />
+                <Route path="/rtk-cards/setNewPassword/:token" element={<CreatePassword />} />
+                {/* <Route path="/cards" element={<Cards />} />
+                <Route path="/learn" element={<Learn />} /> */}
               </Routes>
             </Paper>
           </div>

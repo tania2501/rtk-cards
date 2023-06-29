@@ -4,7 +4,7 @@ import { Button, TextField } from "@mui/material";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { authThunks } from "../SingUp/auth.slice";
-import { NavLink, Navigate } from "react-router-dom";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
 
 export const ForgotPassword = () => {
   const dispatch = useAppDispatch();
@@ -18,10 +18,14 @@ export const ForgotPassword = () => {
     mode: "onChange",
     defaultValues: { email: "" },
   });
-
+  const navigate = useNavigate();
   const submitHandler: SubmitHandler<{ email: string }> = (data) => {
     console.log(data);
-    dispatch(authThunks.forgot(data.email))
+    dispatch(authThunks.forgot(data.email)).then( res => {
+      if(res.meta.requestStatus === 'fulfilled') {
+        return navigate('/rtk-cards/checking')
+      }
+    })
    
   };
   
@@ -51,7 +55,7 @@ export const ForgotPassword = () => {
       </form>
       <h5>Did you remember your password?</h5>
       <Button variant="text">
-        <NavLink to="/login">Try logging in</NavLink>
+        <NavLink to="/rtk-cards/login">Try logging in</NavLink>
       </Button>
     </div>
   );
