@@ -1,35 +1,44 @@
+import { ThunkApiType } from './../components/Auth/SingUp/auth.slice';
 import { authAPI } from './../components/Auth/auth.api';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createAppAsyncThunk } from '../common/utils/create-app-async-thunk';
 import { setProfile } from '../components/Auth/SingUp/auth.slice';
+import { thunkTryCatch } from '../common/utils/thunk-try-catch';
 
 
 const slice = createSlice({
   name: 'app',
   initialState: {
     auth: false,
-    initialized: false,
+    isLoading: false,
+    error: null as string | null,
     name: '',
     avatar: '',
   },
   reducers: {
-    singIn(state, action: PayloadAction<{auth: boolean}>) {
+    singIn(state, action: PayloadAction<{ auth: boolean }>) {
       state.auth = action.payload.auth
-    }, 
-    setInitialized(state, action: PayloadAction<{initialized: boolean}>) {
-      state.initialized = action.payload.initialized
-    }
+    },
+    setInitialized(state, action: PayloadAction<{ isLoading: boolean }>) {
+      state.isLoading = action.payload.isLoading
+    },
+    setAppError: (state, action: PayloadAction<{ error: string | null }>) => {
+      state.error = action.payload.error;
+    },
   }
 })
 export const appReducer = slice.reducer;
-export const {singIn, setInitialized} = slice.actions;
+export const { singIn, setInitialized, setAppError } = slice.actions;
 
-const authorization = createAppAsyncThunk("app/me", async (arg, thunkApi) => {
-  thunkApi.dispatch(setInitialized({initialized: true}))
-  const res = await authAPI.authMe();
-  if(res.status === 200) {
-    thunkApi.dispatch(singIn({auth: true}))
-    thunkApi.dispatch(setProfile({email: res.data.email, name: res.data.name}))
+const authorization = createAppAsyncThunk("app/me", async (arg, thunkAPI) => {
+  thunkAPI.dispatch(setInitialized({isLoading: true}))
+  try {
+    const res = await authAPI.authMe();
+    thunkAPI.dispatch(singIn({ auth: true }))
+    thunkAPI.dispatch(setProfile({ email: res.data.email, name: res.data.name }))
+    thunkAPI.dispatch(setInitialized({isLoading: false}))
+  } catch {
+    thunkAPI.dispatch(setInitialized({isLoading: false}))
   }
 });
 
