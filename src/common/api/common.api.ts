@@ -12,7 +12,7 @@ instance.interceptors.response.use(
     return response;
   },
   function (error) {
-    if (error.response.status == 401 && globalRouter.navigate) {
+    if (error.response.status === 401 && globalRouter.navigate) {
       globalRouter.navigate("/login");
     }
     return Promise.reject(error);

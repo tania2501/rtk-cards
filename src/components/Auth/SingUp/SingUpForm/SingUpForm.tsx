@@ -19,7 +19,7 @@ export const SingUpForm = () => {
     register,
     handleSubmit,
     watch,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<LoginFormType>({
     mode: "onChange",
     defaultValues: { email: "" },

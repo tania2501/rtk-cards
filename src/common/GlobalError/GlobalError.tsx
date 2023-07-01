@@ -19,12 +19,12 @@ export const GlobalError = () => {
         dispatch(setAppError({ error: null }));
       }, 1000);
     }
-  }, [error]);
+  }, [error, dispatch]);
 
   return (
     <ToastContainer
       position="top-center"
-      autoClose={5000}
+      autoClose={3000}
       hideProgressBar={false}
       newestOnTop={false}
       closeOnClick

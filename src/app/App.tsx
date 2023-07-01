@@ -20,7 +20,7 @@ function App() {
   
   useEffect(() => {
     dispatch(appThunks.authorization());
-  }, []);
+  }, [dispatch]);
   return (
     <BrowserRouter>
       {auth ? <Navigate to="/rtk-cards/profile" /> : null}

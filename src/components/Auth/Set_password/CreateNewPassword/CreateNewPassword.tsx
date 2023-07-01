@@ -26,8 +26,6 @@ export const CreatePassword = () => {
   const {
     register,
     handleSubmit,
-    reset,
-    watch,
     formState: { errors, isValid },
   } = useForm<{ password: string }>({
     mode: "onChange",
@@ -89,7 +87,7 @@ export const CreatePassword = () => {
         <p className={s.text}>
           Create new password and we will send you further instructions to email
         </p>
-        <Button type="submit" variant="contained" color="secondary" fullWidth>
+        <Button type="submit" variant="contained" color="secondary" fullWidth disabled={!isValid}>
           Create new password
         </Button>
       </form>

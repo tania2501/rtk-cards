@@ -85,6 +85,4 @@ export const authThunks = { register, login, logOut, forgot, setPassword, change
 export type ThunkApiType = {
   state: RootState, 
   dispatch: AppDispatch, 
-  rejectWithValue: null, 
-  rejectValue: null
 }

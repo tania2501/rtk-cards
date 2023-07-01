@@ -5,6 +5,7 @@ import s from './LoginForm.module.css';
 import { useAppDispatch } from "app/hooks";
 import { NavLink } from "react-router-dom";
 import { authThunks } from "../../SingUp/auth.slice";
+import { toast } from "react-toastify";
 
 
 type LoginFormType = {
@@ -18,16 +19,19 @@ export const LoginForm = () => {
   const {
     register,
     handleSubmit,
-    reset,
-    watch,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<LoginFormType>({
     mode: "onChange",
     defaultValues: { email: "" },
   });
   const submitHandler: SubmitHandler<LoginFormType> = (data) => {
-    dispatch(authThunks.login(data))
-    console.log(data);
+    dispatch(authThunks.login(data)).unwrap().then((res)=>{
+      toast.success("Вы успешно залогинились");
+      console.log(res);
+    })
+    .catch((e) => {
+      toast.error(e)
+    })
   };
   return (
     <div>

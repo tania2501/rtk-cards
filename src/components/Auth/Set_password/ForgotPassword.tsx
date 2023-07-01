@@ -2,18 +2,15 @@ import React from "react";
 import s from "./ForgotPassword.module.css";
 import { Button, TextField } from "@mui/material";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useAppDispatch, useAppSelector } from "../../../app/hooks";
+import { useAppDispatch} from "../../../app/hooks";
 import { authThunks } from "../SingUp/auth.slice";
-import { NavLink, Navigate, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export const ForgotPassword = () => {
   const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
-    reset,
-    watch,
-    formState: { errors, isValid },
   } = useForm<{ email: string }>({
     mode: "onChange",
     defaultValues: { email: "" },
