@@ -7,7 +7,7 @@ import { Singup } from "../components/Auth/SingUp/Singup";
 import { Login } from "../components/Auth/Login/Login";
 import { Profile } from "../components/Profile/Profile";
 import { appThunks } from "./app.slice";
-import { LinearProgress, Paper } from "@mui/material";
+import { Grid, LinearProgress, Paper } from "@mui/material";
 import { ForgotPassword } from "../components/Auth/Set_password/ForgotPassword";
 import { CheckMail } from "../components/Auth/Set_password/CheckMail/CheckMail";
 import { CreatePassword } from "../components/Auth/Set_password/CreateNewPassword/CreateNewPassword";
@@ -27,10 +27,10 @@ function App() {
       <div className="App">
         <Header />
         {isLoading && <LinearProgress />}
-        <div className="container">
-          <div className="app-wrapper-content">
+      
           {/* {error && <div style={{color: 'red', textAlign: 'center'}}>{error}</div>} */}
-            <Paper elevation={3} className='paper'>
+          <Grid>
+          <Paper elevation={3} className='paper'>
               <Routes>
                 <Route path="/rtk-cards" element={<Profile />} />
                 <Route path="/rtk-cards/login" element={<Login />} />
@@ -43,8 +43,7 @@ function App() {
                 <Route path="/learn" element={<Learn />} /> */}
               </Routes>
             </Paper>
-          </div>
-        </div>
+          </Grid>
       </div>
     </BrowserRouter>
   );

@@ -4,8 +4,7 @@
 }
 .container {
   display: flex;
-  justify-content: space-between;
-  width: 1200px;
+  justify-content: space-around;
   margin: 0 auto;
 }
 .container button a {

@@ -1,5 +1,6 @@
 {
   "name": "rtk-cards",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://tania2501.github.io/rtk-cards",
@@ -17,6 +18,7 @@
     "@types/react": "^18.0.6",
     "@types/react-dom": "^18.0.2",
     "axios": "^1.4.0",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.3",
