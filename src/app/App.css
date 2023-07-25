@@ -14,9 +14,9 @@
   top: 30%
 }
 .paper {
-  width: 413px;
   margin: 30px auto;
-  padding: 35px;
+  padding: 10px 0px;
+  max-width: 400px;
 }
 .app-wrapper-content button {
   border-radius: 25px;
